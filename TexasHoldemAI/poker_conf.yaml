@@ -4,9 +4,7 @@ initial_stack: 100
 max_round: 10
 small_blind: 10
 ai_players:
-- name: simple_player
-  path: /home/paradise/Desktop/projects/Machine learning/TexasHoldemAI/player/simple_player.py
-- name: tight_player
-  path: /home/paradise/Desktop/projects/Machine learning/TexasHoldemAI/player/tight_player.py
+- name: bot
+  path: /home/paradise/Desktop/projects/Machine learning/TexasHoldemAI/player/expert_system_player.py
 
 # pypokergui serve poker_conf.yaml --port 8000 --speed moderate

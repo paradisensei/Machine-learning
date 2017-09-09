@@ -1,3 +1,3 @@
-from simple_player import SimplePlayer
-from tight_player import TightPlayer
-from emulator_player import EmulatorPlayer
+from .simple_player import SimplePlayer
+from .expert_system_player import ExpertSystemPlayer
+from .emulator_player import EmulatorPlayer

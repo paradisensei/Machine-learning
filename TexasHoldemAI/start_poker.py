@@ -1,10 +1,13 @@
 from pypokerengine.api.game import setup_config, start_poker
 
-from player import SimplePlayer, TightPlayer, EmulatorPlayer
+from player import SimplePlayer, ExpertSystemPlayer, EmulatorPlayer
 
-config = setup_config(max_round=100, initial_stack=100, small_blind_amount=5)
-tight_player = TightPlayer()
+config = setup_config(max_round=3, initial_stack=1500, small_blind_amount=15)
+expert_system_player = ExpertSystemPlayer()
 simple_player = SimplePlayer()
-config.register_player(name="p1", algorithm=tight_player)
-config.register_player(name="p2", algorithm=EmulatorPlayer(tight_player, simple_player))
-print start_poker(config, verbose=1)
+simple_player_1 = SimplePlayer()
+simple_player_1.set_action(0)
+config.register_player(name="p1", algorithm=expert_system_player)
+config.register_player(name="p2", algorithm=simple_player)
+config.register_player(name="p3", algorithm=simple_player_1)
+print(start_poker(config, verbose=1))

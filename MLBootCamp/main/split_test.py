@@ -3,7 +3,7 @@ import numpy as np
 
 from sklearn.neural_network import MLPClassifier
 
-from utils import normalize
+from .utils import normalize
 
 # read data
 data = pd.read_csv('data/train.csv', sep=';')
