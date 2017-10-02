@@ -1,4 +1,5 @@
-.idea
+.idea/
 *.pyc
 
-res
+res/
+solution/

@@ -14,16 +14,16 @@ class ExpertSystemPlayer(BasePokerPlayer):
         for player_info in round_state['seats']:
             if player_info['uuid'] == self.uuid:
                 self.stack = player_info['stack']
-            if player_info['state'] == 'participating':
+            if player_info['state'] != 'folded':
                 _nb_player += 1
         win_rate = estimate_hole_card_win_rate(
-            nb_simulation=500, nb_player=_nb_player, hole_card=gen_cards(hole_card),
+            nb_simulation=550, nb_player=_nb_player, hole_card=gen_cards(hole_card),
             community_card=gen_cards(round_state['community_card'])
         )
         if round_state['street'] == 'preflop':
             next_action = self.__action_of_win_rate(win_rate, 0.1, 0.15, 0.2, 0.25)
         else:
-            next_action = self.__action_of_win_rate(win_rate, 0.1, 0.15, 0.25, 0.35)
+            next_action = self.__action_of_win_rate(win_rate, 0.1, 0.15, 0.23, 0.3)
         return self.__action(next_action, valid_actions)
 
     def __action_of_win_rate(self, win_rate, p1, p2, p3, p4):
